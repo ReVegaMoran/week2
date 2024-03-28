@@ -1,0 +1,4 @@
+firstName,lastName,dateOfBirth,email,phone,streetAddress1,streetAddress2,city,stateOrProvince,postalCode,country
+John,Doe,1990-01-01,johndoe@example.com,8005551234,Senadora Maria,Sagrada Familia,Santiago,Maipú,21200,Chile
+Jane,Smith,1985-05-15,janesmith@example.com,8005555678,Calle Principal,Edificio A,Aguascalientes,Aguascalientes,20200,Mexico
+Michael,Johnson,1982-11-20,michaeljohnson@example.com,8005559101,Avenida Libertador,Edificio B,Buenos Aires,La Plata,190022,Argentina
