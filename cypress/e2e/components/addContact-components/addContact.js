@@ -48,6 +48,10 @@ class AddContact {
     ClickButtonSubmitButton() {
         this.elements.getSubmitButton().click();
     }
+    AlertMessageRequiredFields() {
+        this.elements.getSubmitButton().click();
+        this.elements.getRequiredFieldsWarningMessage().should('contain', 'Contact validation failed: firstName:');
+    }
 }
 
 export const addContact = new AddContact;

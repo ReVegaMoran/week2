@@ -5,23 +5,27 @@ import { addContact } from "../components/addContact-components/addContact.js";
 
 let counter = 0;
 
-describe('Primer test case', () => {
+describe('Sign-up Tests, Alert Messages, Contact Creation, Logout', () => {
     beforeEach(() => {
         cy.visit('/login')
     });
 
-    it('primera prueba', () => {
-        //Automatizar el proceso de registro, incluyendo la validación del formulario, campos obligatorios, etc.
-        //Utilice valores estáticos para nombre de usuario y contraseña para registrarse, para nombre y apellidos utilice 
-        //faker.js para generar todos los datos necesarios para las entradas.
+    it('Full Registration and Contact Creation Flow', () => {
+        /*Automate the signup process, including form validation, required fields, etc.
+        //Use static values for the username and password to register, for name and lastname 
+        use faker.js to generate all data needed by the inputs.*/
         login.goToAddUser();
         addUser.AlertMessageRequiredFields();
         addUser.AddFirstUser();
         contactList.ClickButtonLogout();
-        //Inicie sesión en la aplicación.
+        //Login the application.
         login.loginUser();
-        //- Create 3 new contacts in the application using the information from the CSV file (The addition must be dynamic).
+        /*Create a new CSV file and use it under the fixtures folder. The file should contain 3 contacts 
+        with all information needed by the website form. (Check contact creation form).
+        Create 3 new contacts in the application by using the CSV file information. 
+        (Addition should be dynamic).*/
         contactList.ClickButtonContactList();
+        addContact.AlertMessageRequiredFields();
         cy.task('parseCsv', { filePath: 'contacts.csv' }).then((contacts) => {
             console.log(contacts);
             contacts.forEach((contact) => {
@@ -45,6 +49,7 @@ describe('Primer test case', () => {
             });
 
             if (counter === 3) {
+                //Logout the application.
                 contactList.ClickButtonLogout();
             }
         });
